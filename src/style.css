@@ -1,0 +1,1967 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #f3f4f6;
+  color: #111827;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    sans-serif;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.app {
+  width: min(1100px, 100%);
+  margin: 0 auto;
+  padding: 84px 20px 32px;
+}
+
+.hero {
+  margin-bottom: 24px;
+  padding: 28px;
+  border-radius: 20px;
+  background: #111827;
+  color: white;
+}
+
+.hero h1 {
+  margin: 0 0 8px;
+  font-size: 32px;
+}
+
+.hero p {
+  margin: 0;
+  color: #d1d5db;
+}
+
+.summary-card,
+.today-card,
+.add-card,
+.list-card {
+  margin-bottom: 24px;
+  padding: 24px;
+  border-radius: 20px;
+  background: white;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+}
+
+.summary-card h2,
+.today-card h2,
+.add-card h2,
+.list-card h2 {
+  margin-top: 0;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+}
+
+.summary-item {
+  padding: 16px;
+  border-radius: 14px;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+}
+
+.summary-item span {
+  display: block;
+  margin-bottom: 6px;
+  color: #6b7280;
+  font-size: 13px;
+}
+
+.summary-item strong {
+  font-size: 18px;
+}
+
+.today-info {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.today-info p {
+  margin: 0;
+  padding: 16px;
+  border-radius: 14px;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+}
+
+.today-info span {
+  display: block;
+  margin-bottom: 6px;
+  color: #6b7280;
+  font-size: 13px;
+}
+
+.today-info strong {
+  font-size: 18px;
+}
+
+.button-area {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.button-area button {
+  border: none;
+  border-radius: 999px;
+  padding: 12px 22px;
+  background: #2563eb;
+  color: white;
+  font-weight: 700;
+}
+
+.add-form {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.add-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.add-form span {
+  color: #6b7280;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.add-form input {
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  font: inherit;
+}
+
+.add-button {
+  border: none;
+  border-radius: 999px;
+  padding: 12px 22px;
+  background: #111827;
+  color: white;
+  font-weight: 700;
+}
+
+.list-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: 14px;
+  margin-bottom: 18px;
+  padding: 16px;
+  border-radius: 14px;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+}
+
+.list-controls label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.list-controls span {
+  color: #6b7280;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.list-controls input,
+.list-controls select {
+  min-width: 160px;
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  background: white;
+  font: inherit;
+}
+
+.clear-filter-button {
+  border: none;
+  border-radius: 999px;
+  padding: 11px 18px;
+  background: #374151;
+  color: white;
+  font-weight: 700;
+}
+
+.empty-message {
+  color: #6b7280;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  overflow: hidden;
+}
+
+th,
+td {
+  padding: 12px;
+  border-bottom: 1px solid #e5e7eb;
+  text-align: left;
+  font-size: 14px;
+}
+
+th {
+  background: #f9fafb;
+  color: #374151;
+}
+
+td input {
+  width: 100%;
+  min-width: 100px;
+  padding: 8px 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font: inherit;
+}
+
+.table-button-area {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.edit-button,
+.save-button,
+.cancel-button,
+.delete-button {
+  border: none;
+  border-radius: 8px;
+  padding: 8px 12px;
+  color: white;
+  font-weight: 700;
+}
+
+.edit-button {
+  background: #2563eb;
+}
+
+.save-button {
+  background: #16a34a;
+}
+
+.cancel-button {
+  background: #6b7280;
+}
+
+.delete-button {
+  background: #dc2626;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 72px;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: #e5e7eb;
+  color: #374151;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.status-working {
+  background: #bfdbfe;
+  color: #1e3a8a;
+}
+
+.status-breaking {
+  background: #fed7aa;
+  color: #9a3412;
+}
+
+.status-finished {
+  background: #fecaca;
+  color: #991b1b;
+}
+
+@media (max-width: 900px) {
+
+  .summary-grid,
+  .today-info {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .add-form {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .list-card {
+    overflow-x: auto;
+  }
+
+  table {
+    min-width: 950px;
+  }
+}
+
+@media (max-width: 600px) {
+
+  .summary-grid,
+  .today-info,
+  .add-form {
+    grid-template-columns: 1fr;
+  }
+
+  .hero h1 {
+    font-size: 26px;
+  }
+}
+
+.message {
+  margin-bottom: 24px;
+  padding: 14px 18px;
+  border-radius: 14px;
+  background: #dcfce7;
+  color: #166534;
+  border: 1px solid #86efac;
+  font-weight: 800;
+}
+
+.csv-button {
+  border: none;
+  border-radius: 999px;
+  padding: 11px 18px;
+  background: #047857;
+  color: white;
+  font-weight: 700;
+}
+
+.dashboard-layout {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.dashboard-main {
+  min-width: 0;
+}
+
+.employee-sidebar {
+  position: sticky;
+  top: 20px;
+  padding: 20px;
+  border-radius: 20px;
+  background: white;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+}
+
+.employee-sidebar h2 {
+  margin-top: 0;
+  font-size: 20px;
+}
+
+.employee-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.employee-button {
+  width: 100%;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 14px;
+  background: #f9fafb;
+  color: #111827;
+  text-align: left;
+}
+
+.employee-button strong {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 15px;
+}
+
+.employee-button span {
+  color: #6b7280;
+  font-size: 13px;
+}
+
+.employee-button.selected {
+  border-color: #2563eb;
+  background: #dbeafe;
+}
+
+.employee-button.selected strong {
+  color: #1d4ed8;
+}
+
+@media (max-width: 900px) {
+  .dashboard-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .employee-sidebar {
+    position: static;
+  }
+
+  .employee-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .employee-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+.app-menu {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 50;
+}
+
+.menu-toggle-button {
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 12px;
+  background: #111827;
+  color: white;
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.menu-panel {
+  position: absolute;
+  top: 54px;
+  left: 0;
+  z-index: 20;
+  width: 220px;
+  padding: 18px;
+  border-radius: 18px;
+  background: white;
+  box-shadow: 0 16px 32px rgba(15, 23, 42, 0.18);
+}
+
+.menu-panel h2 {
+  margin: 0 0 12px;
+  font-size: 18px;
+}
+
+.menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.menu-item {
+  width: 100%;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 12px;
+  background: #f9fafb;
+  color: #111827;
+  text-align: left;
+  font-weight: 800;
+}
+
+.menu-item.active {
+  border-color: #2563eb;
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+.employee-status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  margin-top: 10px;
+  padding: 4px 9px;
+  border-radius: 999px;
+  background: #e5e7eb;
+  color: #374151;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.not-clocked-in {
+  background: #e5e7eb;
+  color: #374151;
+}
+
+.employee-form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.employee-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.employee-form span {
+  color: #6b7280;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.employee-form input {
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  font: inherit;
+}
+
+@media (max-width: 600px) {
+  .employee-form {
+    grid-template-columns: 1fr;
+  }
+}
+
+.employee-delete-button {
+  display: inline-flex;
+  width: fit-content;
+  margin-top: 8px;
+  padding: 4px 9px;
+  border-radius: 999px;
+  background: #fee2e2;
+  color: #991b1b;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.employee-delete-button:hover {
+  background: #fecaca;
+}
+
+.deleted-employees {
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.deleted-employees h3 {
+  margin: 0 0 12px;
+}
+
+.deleted-employee-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.deleted-employee-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  background: #f9fafb;
+}
+
+.deleted-employee-item strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.deleted-employee-item span {
+  color: #6b7280;
+  font-size: 13px;
+}
+
+.deleted-employee-item button {
+  border: none;
+  border-radius: 999px;
+  padding: 8px 14px;
+  background: #2563eb;
+  color: white;
+  font-weight: 800;
+}
+
+.employee-management-section {
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.employee-management-section h3 {
+  margin: 0 0 12px;
+}
+
+.managed-employee-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.managed-employee-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  background: #f9fafb;
+}
+
+.managed-employee-item strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.managed-employee-item span {
+  color: #6b7280;
+  font-size: 13px;
+}
+
+.managed-employee-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.managed-employee-edit {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  flex: 1;
+}
+
+.managed-employee-edit label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.managed-employee-edit input {
+  padding: 9px 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  font: inherit;
+}
+
+@media (max-width: 700px) {
+  .managed-employee-item {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .managed-employee-edit {
+    grid-template-columns: 1fr;
+  }
+}
+
+.department-filter {
+  margin-bottom: 16px;
+  padding: 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  background: #f9fafb;
+}
+
+.department-filter-label {
+  display: block;
+  margin-bottom: 8px;
+  color: #374151;
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.department-filter-select {
+  width: 100%;
+  padding: 11px 12px;
+  border: 1px solid #9ca3af;
+  border-radius: 10px;
+  background: white;
+  color: #111827;
+  font: inherit;
+  font-weight: 700;
+}
+
+.monthly-request-box {
+  margin-top: 20px;
+  padding: 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 12px;
+  background: #f9fafb;
+}
+
+.monthly-request-box p {
+  margin: 0 0 12px;
+  color: #374151;
+}
+
+.monthly-request-box strong {
+  margin-left: 8px;
+  color: #111827;
+}
+
+.monthly-request-box button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.approval-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.approval-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 12px;
+  background: #ffffff;
+}
+
+.approval-item h3 {
+  margin: 0 0 8px;
+  color: #111827;
+}
+
+.approval-item p {
+  margin: 4px 0;
+  color: #374151;
+}
+
+.approval-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.danger-button {
+  border: none;
+  border-radius: 8px;
+  padding: 10px 14px;
+  background: #dc2626;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.danger-button:hover {
+  background: #b91c1c;
+}
+
+.primary-button {
+  border: none;
+  border-radius: 8px;
+  padding: 10px 14px;
+  background: #2563eb;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.primary-button:hover {
+  background: #1d4ed8;
+}
+
+.primary-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.lock-message {
+  margin: 12px 0;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: #fef3c7;
+  color: #92400e;
+  font-weight: bold;
+}
+
+.reject-comment {
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: #fee2e2;
+  color: #991b1b;
+  font-weight: bold;
+}
+
+.login-page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: #f3f4f6;
+}
+
+.login-card {
+  width: min(420px, 90vw);
+  padding: 28px;
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.12);
+}
+
+.login-card h1 {
+  margin: 0 0 8px;
+  color: #111827;
+}
+
+.login-card p {
+  color: #4b5563;
+}
+
+.login-demo-info {
+  margin-top: 16px;
+  padding: 12px;
+  border-radius: 10px;
+  background: #f9fafb;
+  font-size: 13px;
+}
+
+.login-demo-info p {
+  margin: 4px 0;
+}
+
+.login-user-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.login-user-box p {
+  margin: 0;
+  color: #374151;
+  font-weight: bold;
+}
+
+.secondary-button {
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 9px 12px;
+  background: #ffffff;
+  color: #374151;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.secondary-button:hover {
+  background: #f3f4f6;
+}
+
+.employee-layout {
+  grid-template-columns: 1fr;
+}
+
+.employee-layout .dashboard-main {
+  width: 100%;
+}
+
+.user-role-label {
+  margin-top: 4px !important;
+  font-size: 13px;
+  color: #6b7280 !important;
+  font-weight: normal !important;
+}
+
+.login-user-box p {
+  color: white;
+  font-weight: bold;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+.login-user-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  text-align: center;
+}
+
+.login-user-box>div {
+  text-align: center;
+}
+
+.logout-button {
+  border: none;
+  border-radius: 8px;
+  padding: 9px 12px;
+  background: #dc2626;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.logout-button:hover {
+  background: #b91c1c;
+}
+
+.login-user-box .user-role-label {
+  color: white !important;
+  font-weight: bold !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+.link-button {
+  margin-top: 14px;
+  border: none;
+  background: transparent;
+  color: #2563eb;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.link-button:hover {
+  text-decoration: underline;
+}
+
+.register-form-box {
+  margin-top: 16px;
+}
+
+.login-page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background:
+    radial-gradient(circle at top left, rgba(59, 130, 246, 0.25), transparent 32%),
+    linear-gradient(135deg, #0f172a, #1e293b);
+}
+
+.login-card {
+  width: min(460px, 100%);
+  padding: 32px;
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.35);
+}
+
+.login-card h1 {
+  margin: 0 0 8px;
+  color: #111827;
+  font-size: 28px;
+  text-align: center;
+}
+
+.login-card>p {
+  margin: 0 0 24px;
+  color: #4b5563;
+  text-align: center;
+  font-weight: bold;
+}
+
+.login-card .form-group {
+  margin-bottom: 16px;
+}
+
+.login-card label {
+  display: block;
+  margin-bottom: 6px;
+  color: #374151;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.login-card input {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  padding: 11px 12px;
+  font-size: 15px;
+  outline: none;
+}
+
+.login-card input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.16);
+}
+
+.login-card .primary-button {
+  width: 100%;
+  margin-top: 6px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  font-size: 15px;
+}
+
+.login-demo-info {
+  margin-top: 18px;
+  padding: 12px;
+  border-radius: 12px;
+  background: #f3f4f6;
+  border: 1px solid #e5e7eb;
+}
+
+.login-demo-info p {
+  margin: 4px 0;
+  color: #4b5563;
+  font-size: 13px;
+}
+
+.link-button {
+  display: block;
+  width: 100%;
+  margin-top: 16px;
+  border: none;
+  background: transparent;
+  color: #2563eb;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+}
+
+.link-button:hover {
+  text-decoration: underline;
+}
+
+.register-form-box {
+  margin-top: 8px;
+}
+
+.login-page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: #f3f4f6;
+}
+
+.app {
+  min-height: 100vh;
+  padding: 24px;
+  background: #f3f4f6;
+}
+
+.hero {
+  margin-bottom: 20px;
+  padding: 22px 24px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #1f2937, #374151);
+  color: white;
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.18);
+}
+
+.hero h1 {
+  margin: 0 0 8px;
+  color: white;
+  font-size: 28px;
+}
+
+.hero p {
+  margin: 0;
+  color: #e5e7eb;
+}
+
+.dashboard-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+.dashboard-main {
+  min-width: 0;
+}
+
+.card {
+  padding: 22px;
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+}
+
+.card h2 {
+  margin: 0 0 16px;
+  color: #111827;
+  font-size: 22px;
+}
+
+.card h3 {
+  color: #111827;
+}
+
+.empty-text {
+  color: #6b7280;
+  font-weight: bold;
+}
+
+.paid-leave-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+  padding: 18px 20px;
+  border-radius: 16px;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+}
+
+.paid-leave-summary p {
+  margin: 0;
+  color: #6b7280;
+  font-weight: bold;
+}
+
+.paid-leave-summary strong {
+  color: #111827;
+  font-size: 28px;
+}
+
+.employee-layout {
+  grid-template-columns: 1fr;
+}
+
+.employee-layout .dashboard-main {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.paid-leave-page {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.paid-leave-header-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 24px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #111827, #374151);
+  color: white;
+  box-shadow: 0 14px 32px rgba(15, 23, 42, 0.18);
+}
+
+.paid-leave-header-card h2 {
+  margin: 4px 0 8px;
+  color: white;
+  font-size: 26px;
+}
+
+.paid-leave-header-card p {
+  margin: 0;
+  color: #e5e7eb;
+}
+
+.section-label {
+  margin: 0;
+  color: #bfdbfe;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 0.12em;
+}
+
+.paid-leave-balance-box {
+  min-width: 150px;
+  padding: 18px 20px;
+  border-radius: 18px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+.paid-leave-balance-box span {
+  display: block;
+  margin-bottom: 4px;
+  color: #e5e7eb;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.paid-leave-balance-box strong {
+  color: white;
+  font-size: 42px;
+  line-height: 1;
+}
+
+.paid-leave-balance-box small {
+  margin-left: 4px;
+  color: #e5e7eb;
+  font-weight: bold;
+}
+
+.paid-leave-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.paid-leave-stat-card {
+  padding: 18px 20px;
+  border-radius: 18px;
+  background: white;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+}
+
+.paid-leave-stat-card span {
+  display: block;
+  margin-bottom: 8px;
+  color: #6b7280;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.paid-leave-stat-card strong {
+  color: #111827;
+  font-size: 24px;
+}
+
+.paid-leave-form-card h3,
+.card h3 {
+  margin-top: 0;
+}
+
+.paid-leave-form-row {
+  display: flex;
+  align-items: end;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.paid-leave-form-row label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: #374151;
+  font-weight: bold;
+}
+
+.paid-leave-form-row input {
+  min-width: 220px;
+  padding: 11px 12px;
+  border-radius: 12px;
+  border: 1px solid #d1d5db;
+  font-size: 15px;
+}
+
+.primary-button,
+.approve-button,
+.reject-button {
+  border: none;
+  border-radius: 12px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.primary-button {
+  padding: 12px 18px;
+  background: #2563eb;
+}
+
+.primary-button:hover {
+  background: #1d4ed8;
+}
+
+.primary-button:disabled {
+  cursor: not-allowed;
+  background: #93c5fd;
+}
+
+.approve-button {
+  padding: 9px 14px;
+  background: #16a34a;
+}
+
+.approve-button:hover {
+  background: #15803d;
+}
+
+.reject-button {
+  padding: 9px 14px;
+  background: #dc2626;
+}
+
+.reject-button:hover {
+  background: #b91c1c;
+}
+
+.paid-leave-status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 72px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.paid-leave-status.pending {
+  color: #92400e;
+  background: #fef3c7;
+}
+
+.paid-leave-status.approved {
+  color: #166534;
+  background: #dcfce7;
+}
+
+.paid-leave-status.rejected {
+  color: #991b1b;
+  background: #fee2e2;
+}
+
+.table-scroll {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.paid-leave-table {
+  min-width: 760px;
+}
+
+.table-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.empty-action {
+  color: #9ca3af;
+  font-weight: bold;
+}
+
+@media (max-width: 700px) {
+  .paid-leave-header-card {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .paid-leave-stat-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .paid-leave-form-row {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .paid-leave-form-row input {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .primary-button {
+    width: 100%;
+  }
+}
+
+/* 有給申請画面を少しコンパクトにする */
+.paid-leave-page {
+  gap: 14px;
+}
+
+.paid-leave-header-card {
+  padding: 18px 20px;
+  border-radius: 18px;
+}
+
+.paid-leave-header-card h2 {
+  font-size: 22px;
+}
+
+.paid-leave-header-card p {
+  font-size: 14px;
+}
+
+.section-label {
+  font-size: 11px;
+}
+
+.paid-leave-balance-box {
+  min-width: 120px;
+  padding: 14px 16px;
+  border-radius: 16px;
+}
+
+.paid-leave-balance-box strong {
+  font-size: 32px;
+}
+
+.paid-leave-stat-grid {
+  gap: 12px;
+}
+
+.paid-leave-stat-card {
+  padding: 14px 16px;
+  border-radius: 16px;
+}
+
+.paid-leave-stat-card strong {
+  font-size: 20px;
+}
+
+.paid-leave-form-row input {
+  padding: 9px 11px;
+  min-width: 200px;
+}
+
+.primary-button {
+  padding: 10px 16px;
+}
+
+.paid-leave-status {
+  min-width: 64px;
+  padding: 5px 9px;
+  font-size: 11px;
+}
+
+/* =========================
+   最終レイアウト調整
+   左サイドバー + 右側730px固定
+========================= */
+
+:root {
+  --side-menu-width: 180px;
+  --main-left-space: 210px;
+  --employee-list-width: 300px;
+  --main-panel-width: 730px;
+  --layout-gap: 22px;
+}
+
+/* 黒い縦線・余計な線を消す */
+html,
+body,
+#root,
+.app {
+  border: none !important;
+  outline: none !important;
+}
+
+body::before,
+body::after,
+.app::before,
+.app::after {
+  display: none !important;
+  content: none !important;
+}
+
+/* 全体 */
+.app {
+  width: auto !important;
+  max-width: none !important;
+  min-height: 100vh;
+  margin: 0 !important;
+  padding: 24px 24px 24px var(--main-left-space) !important;
+  background: #f3f4f6;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+/* 古いハンバーガーメニューは非表示 */
+.app-menu,
+.menu-toggle-button,
+.menu-panel {
+  display: none !important;
+}
+
+/* 左サイドバー */
+.app-side-menu {
+  position: fixed;
+  top: 24px;
+  left: 0;
+  bottom: 24px;
+  z-index: 50;
+  width: var(--side-menu-width);
+  padding: 20px 16px;
+  border-radius: 0 22px 22px 0;
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid #e5e7eb;
+  border-left: none;
+  box-shadow: 0 14px 32px rgba(15, 23, 42, 0.08);
+  box-sizing: border-box;
+}
+
+.side-menu-logo {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  margin-bottom: 18px;
+  border-radius: 12px;
+  background: #f3f4f6;
+  color: #111827;
+  font-weight: bold;
+  border: 1px solid #e5e7eb;
+}
+
+.side-menu-title {
+  margin: 0 0 14px;
+  color: #6b7280;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 0.14em;
+  text-align: center;
+}
+
+.side-menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.side-menu-item {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1px solid transparent;
+  border-radius: 14px;
+  background: transparent;
+  color: #374151;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: left;
+  cursor: pointer;
+}
+
+.side-menu-item:hover {
+  background: #f9fafb;
+  border-color: #e5e7eb;
+}
+
+.side-menu-item.active {
+  background: #f3f4f6;
+  color: #111827;
+  border-color: #d1d5db;
+}
+
+/* ヘッダー幅 */
+.hero {
+  width: calc(var(--employee-list-width) + var(--layout-gap) + var(--main-panel-width)) !important;
+  max-width: none !important;
+  margin: 0 0 22px !important;
+  box-sizing: border-box;
+}
+
+/* 管理者画面：左社員一覧 + 右メイン */
+.dashboard-layout {
+  width: calc(var(--employee-list-width) + var(--layout-gap) + var(--main-panel-width)) !important;
+  max-width: none !important;
+  margin: 0 !important;
+
+  display: grid !important;
+  grid-template-columns: var(--employee-list-width) var(--main-panel-width) !important;
+  gap: var(--layout-gap) !important;
+  align-items: start !important;
+  justify-content: start !important;
+  box-sizing: border-box;
+}
+
+/* 右側メイン */
+.dashboard-main {
+  width: var(--main-panel-width) !important;
+  max-width: var(--main-panel-width) !important;
+  min-width: var(--main-panel-width) !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+}
+
+/* 右側に表示される画面は730pxに収める */
+.dashboard-main>section,
+.dashboard-main>.card,
+.dashboard-main .paid-leave-page {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin-right: 0 !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+}
+
+/* 勤怠履歴の過去の横伸ばしをリセット */
+.attendance-list-card {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin-right: 0 !important;
+  overflow: hidden !important;
+}
+
+/* テーブル系はカード内で横スクロール */
+.table-scroll {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+/* 勤怠履歴は列が多いので中だけスクロール */
+.attendance-list-card .attendance-table {
+  min-width: 860px;
+}
+
+/* 登録申請管理 */
+.register-request-card .attendance-table {
+  min-width: 760px;
+}
+
+/* 有給承認管理 */
+.paid-leave-approval-card .attendance-table,
+.paid-leave-table {
+  min-width: 900px;
+}
+
+/* =========================
+   真ん中寄せをやめて全部左に寄せる
+========================= */
+
+.app {
+  width: auto !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 24px 24px 24px 100px !important;
+  box-sizing: border-box !important;
+}
+
+/* ヘッダーを左寄せ */
+.hero {
+  width: calc(var(--employee-list-width) + var(--layout-gap) + var(--main-panel-width)) !important;
+  max-width: none !important;
+  margin-left: 0 !important;
+  margin-right: auto !important;
+}
+
+/* 社員一覧 + 右側メインを左寄せ */
+.dashboard-layout {
+  width: calc(var(--employee-list-width) + var(--layout-gap) + var(--main-panel-width)) !important;
+  max-width: none !important;
+  margin-left: 0 !important;
+  margin-right: auto !important;
+
+  display: grid !important;
+  grid-template-columns: var(--employee-list-width) var(--main-panel-width) !important;
+  gap: var(--layout-gap) !important;
+  justify-content: start !important;
+  align-items: start !important;
+}
+
+/* 右側メインも固定幅のまま左基準 */
+.dashboard-main {
+  width: var(--main-panel-width) !important;
+  max-width: var(--main-panel-width) !important;
+  min-width: var(--main-panel-width) !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* 社員画面も中央寄せをやめる */
+.employee-layout {
+  grid-template-columns: var(--main-panel-width) !important;
+  justify-content: start !important;
+}
+
+.employee-layout .dashboard-main {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* 右で切れるのを防ぐ */
+:root {
+  --main-left-space: 100px;
+  --employee-list-width: 300px;
+  --main-panel-width: 850px;
+  --layout-gap: 22px;
+}
+
+.app {
+  width: auto !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 24px 24px 24px var(--main-left-space) !important;
+  overflow-x: hidden !important;
+}
+
+.hero,
+.dashboard-layout {
+  width: calc(var(--employee-list-width) + var(--layout-gap) + var(--main-panel-width)) !important;
+  max-width: none !important;
+  margin-left: 0 !important;
+  margin-right: auto !important;
+}
+
+.dashboard-layout {
+  grid-template-columns: var(--employee-list-width) var(--main-panel-width) !important;
+  justify-content: start !important;
+}
+
+.dashboard-main {
+  width: var(--main-panel-width) !important;
+  max-width: var(--main-panel-width) !important;
+  min-width: 0 !important;
+  overflow: hidden !important;
+}
+
+/* =========================
+   右側メインを画面の右端まで広げる
+========================= */
+
+:root {
+  --main-left-space: 100px;
+  --employee-list-width: 300px;
+  --layout-gap: 22px;
+}
+
+/* 画面全体 */
+.app {
+  width: 100vw !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 24px 24px 24px var(--main-left-space) !important;
+  box-sizing: border-box !important;
+  overflow-x: hidden !important;
+}
+
+/* ヘッダーは社員一覧 + 右側メインぶん全部使う */
+.hero {
+  width: calc(100vw - var(--main-left-space) - 48px) !important;
+  max-width: none !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* 社員一覧 + 右側メイン */
+.dashboard-layout {
+  width: calc(100vw - var(--main-left-space) - 48px) !important;
+  max-width: none !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+
+  display: grid !important;
+  grid-template-columns: var(--employee-list-width) minmax(0, 1fr) !important;
+  gap: var(--layout-gap) !important;
+  justify-content: start !important;
+  align-items: start !important;
+}
+
+/* 右側メインは残り幅全部 */
+.dashboard-main {
+  width: 100% !important;
+  max-width: none !important;
+  min-width: 0 !important;
+  overflow: visible !important;
+}
+
+/* 右側カードも親に合わせて伸ばす */
+.dashboard-main>section,
+.dashboard-main>.card,
+.dashboard-main .paid-leave-page {
+  width: 100% !important;
+  max-width: none !important;
+  box-sizing: border-box !important;
+}
+
+/* =========================
+   三本線メニュー + 中央配置
+========================= */
+
+:root {
+  --employee-list-width: 300px;
+  --main-panel-width: 780px;
+  --layout-gap: 22px;
+}
+
+/* 左固定サイドバーは使わない */
+.app-side-menu,
+.side-menu-logo,
+.side-menu-title,
+.side-menu-list,
+.side-menu-item {
+  display: none !important;
+}
+
+/* 全体を中央に戻す */
+.app {
+  width: 100% !important;
+  max-width: none !important;
+  min-height: 100vh;
+  margin: 0 !important;
+  padding: 24px !important;
+  background: #f3f4f6;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+/* 三本線アイコン */
+.menu-icon-button {
+  position: fixed;
+  top: 24px;
+  left: 24px;
+  z-index: 3000;
+
+  width: 48px;
+  height: 48px;
+  border: none;
+  border-radius: 14px;
+  background: #111827;
+  color: white;
+  font-size: 24px;
+  font-weight: 900;
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.24);
+  cursor: pointer;
+}
+
+/* 外側クリック用 */
+.menu-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 2500;
+  background: transparent;
+}
+
+/* 展開メニュー */
+.floating-menu-panel {
+  position: fixed;
+  top: 84px;
+  left: 24px;
+  z-index: 3001;
+
+  width: 240px;
+  padding: 18px;
+  border-radius: 20px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.24);
+}
+
+/* メニュー見出し */
+.floating-menu-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.floating-menu-logo {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: #f3f4f6;
+  color: #111827;
+  font-weight: 900;
+}
+
+.floating-menu-header p {
+  margin: 0;
+  color: #111827;
+  font-size: 14px;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+}
+
+.floating-menu-header span {
+  color: #6b7280;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* メニュー一覧 */
+.floating-menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.floating-menu-item {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  background: #f9fafb;
+  color: #111827;
+  font-size: 14px;
+  font-weight: 800;
+  text-align: left;
+  cursor: pointer;
+}
+
+.floating-menu-item:hover {
+  background: #eef2ff;
+  border-color: #bfdbfe;
+}
+
+.floating-menu-item.active {
+  background: #dbeafe;
+  color: #1d4ed8;
+  border-color: #2563eb;
+}
+
+/* 中央のヘッダー */
+.hero {
+  width: calc(var(--employee-list-width) + var(--layout-gap) + var(--main-panel-width)) !important;
+  max-width: calc(100vw - 96px) !important;
+  margin: 0 auto 22px !important;
+  box-sizing: border-box;
+}
+
+/* 中央のメイン部分 */
+.dashboard-layout {
+  width: calc(var(--employee-list-width) + var(--layout-gap) + var(--main-panel-width)) !important;
+  max-width: calc(100vw - 96px) !important;
+  margin: 0 auto !important;
+
+  display: grid !important;
+  grid-template-columns: var(--employee-list-width) minmax(0, var(--main-panel-width)) !important;
+  gap: var(--layout-gap) !important;
+  align-items: start !important;
+  justify-content: center !important;
+  box-sizing: border-box;
+}
+
+/* 右側メイン */
+.dashboard-main {
+  width: 100% !important;
+  max-width: var(--main-panel-width) !important;
+  min-width: 0 !important;
+  overflow: hidden !important;
+  box-sizing: border-box;
+}
+
+/* 右側カード */
+.dashboard-main>section,
+.dashboard-main>.card,
+.dashboard-main .paid-leave-page {
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+}
+
+/* 社員画面も中央 */
+.employee-layout {
+  width: var(--main-panel-width) !important;
+  max-width: calc(100vw - 96px) !important;
+  grid-template-columns: minmax(0, var(--main-panel-width)) !important;
+  justify-content: center !important;
+}
